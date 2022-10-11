@@ -4,14 +4,14 @@
 
 int main()
 {
-	int n, p=0;
+	int n, present=0;
 	std::cin >> n;
-	std::vector<int> pres(n);
+	std::vector<int> presents(n);
 	for (int i = 0; i < n; i += 1) {
-		std::cin >> p;
-		pres[p - 1] = i + 1;
+		std::cin >> present;
+		presents[present - 1] = i + 1;
 	}
 	for (int j = 0; j < n; j += 1) {
-		std::cout << pres[j] << " ";
+		std::cout << presents[j] << " ";
 	}
 }
