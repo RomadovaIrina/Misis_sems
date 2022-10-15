@@ -1,8 +1,6 @@
 #include <iostream>
-
 void print_comb(int x1, int y1, int x2, int y2, int n)
 {
-	std::cout << std::endl;
 	if (y1 == y2) {
 		int x3 = x1, y3 = (y1+1)%n, x4 = x2, y4 = (y2 +1)%n;
 		for (int i = 0; i < n; i += 1) {
@@ -62,6 +60,7 @@ int main()
 	std::cin >> t;
 	for (int q = 0; q < t; q += 1) {
 		std::cin >> n;
+		x1 = x2 = y1=y2=0;
 		for (int i = 0; i < n; i += 1) {
 			for (int j = 0; j < n; j += 1)
 			{
@@ -79,7 +78,7 @@ int main()
 
 		}
 		print_comb(x1, y1, x2, y2, n);
-		std::cout << std::endl;
+		flag = 1;
 
 	}
 }
