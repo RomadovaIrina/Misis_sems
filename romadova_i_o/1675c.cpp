@@ -10,22 +10,24 @@ int main()
 	{
 		std::cin >> s;
 		bool flag = 1;
-		int first_zero = 0, las_one=0;
-		for (int i = 0; i < s.length(); i += 1) {
-			if (s[i] == '0' || s[i]=='?')
+		int n = s.length();
+		int first_zero = n -1, las_one =0;
+		for (int i = 0; i < n; i += 1) {
+			if (s[i] == '0')
 			{
 				first_zero = i;
 				break;
 			}
 		}
-		for (int i = s.length(); i >0; i -= 1) {
-			if (s[i] == '1' || s[i]=='?')
+		for (int j = n-1; j >=0; j -= 1) {
+			if (s[j] == '1')
 			{
-				las_one = i;
+				las_one = j;
 				break;
 			}
 		}
-		std::cout << std::abs(first_zero - las_one) + 1 << std::endl;
+		int ans = first_zero-las_one+1;
+		std::cout << ans << std::endl;
 		t -= 1;
 	}
 }
