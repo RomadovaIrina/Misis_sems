@@ -19,16 +19,16 @@ int main()
 			std::cin >> s;
 			for (int j = 0; j < m; j += 1) {
 				if (s[j] == 'R') {
-					minH = std::min(minH, i);
-					minL = std::min(minL, j);
-					if (i < h && j < l) {
-						h = i;
+					minH = std::min(minH, i);//мин робот до верхней границы
+					minL = std::min(minL, j);//мин робот до левой
+					if (i < h && j < l) {//если обе координаты R в пределах поля и минимальны
+						h = i;//то запоминаем как минимального робота
 						l = j;
 					}
 				}
 			}
 		}
-		if (minH == h && minL == l) {
+		if (minH == h && minL == l) {//если на координтах мин расстояния есть мин робот, то можем провести
 			std::cout << "YES" << std::endl;
 		}
 		else {
