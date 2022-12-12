@@ -96,28 +96,4 @@ VectorDec2D convert_PolToDec(VectorPol2D a) {
 VectorPol2D convert_DecToPol(VectorDec2D a) {
 	return { std::sqrt(a.x * a.x + a.y * a.y), std::atan(a.y / a.x) };
 }
-const double t = 1e-2;
-const double mini = 1e-5;
-const double g = 100;
-const double DED = 1.2;
 
-//когда нибудь я обязательно разделю это на файлы...
-int main()
-{
-	std::ofstream fout("output.txt");
-	VectorDec2D point{ -5, -5 };
-	VectorDec2D point_speed{0.2,0.2 };
-	VectorDec2D point_a = (-1)*g*point / std::pow(leng(point),3);
-
-	for (int i = 0; i < 1000; i+=1) {
-		
-		point_a = (-1) * g * point / std::pow(leng(point), 3);
-		point_a = point_a / 2;
-		point_speed = point_speed - point_a * t;
-		point = point + point_speed * t;
-
-
-		fout << point <<"  "<<point_speed << "   " << point_a << "\n";
-	}
-	fout.close();
-}
