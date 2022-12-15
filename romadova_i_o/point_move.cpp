@@ -1,6 +1,6 @@
 #include<iostream>
 #include<fstream>
-#include "geometry.h"
+#include <geom/geometry.hpp>
 #include <cmath>
 
 const double t = 1e-1;
