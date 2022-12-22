@@ -1,37 +1,30 @@
 #include <iostream>
 #include <cmath>
-#include <iostream>
 
-int factor(int num) {
-	int f = 1;
+unsigned long long factor(unsigned long long num) {
+	unsigned long long f = 1;
 	for (int i = 1; i <= num; i += 1) {
 		f *= i;
 	}
 	return f;
-}
+ }
 
+
+const double eps = 0.0001;
 int main()
 {
-	double x = 0.1;
-	double delta_x = 0.05;
-	double eps = 0.0001;
-	while (x <= 1 + delta_x) {
-
-		double s = 0;
+	for (double x = 0.1; x <= 1 + eps; x += 0.05) {
 		double temp_x = x;
-		double temp_prev = 2 * x;
-		double diff = eps;
 		int i = 0;
-		while (temp_prev >= eps) {
-			diff = temp_x - temp_prev;
-			int power = i * 2;
-			int to_div = factor(2 * i);
-			temp_x = (std::pow(temp_x, power)) / to_div;
+		double s = 0;
+		while (temp_x >= eps) {
+			double power = (std::pow(x, 2 * i));
+			unsigned long long factorial = factor(2 * i);
+			temp_x = power / factorial;
 			s += temp_x;
-			temp_prev = temp_x;
 			i += 1;
 		}
-		std::cout << x << " " << s << "\n";
-		x += delta_x;
+		std::cout <<"x: "<<x << " "<<"Sum for x: " << s << "\n";
 	}
+		
 }
