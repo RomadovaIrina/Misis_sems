@@ -1,38 +1,21 @@
 #include <iostream>
 #include <string>
-int factor(int num) {
-	int f = 1;
-	for (int i = 1; i <= num; i += 1) {
-		f *= i;
-	}
-	return f;
-}
 
 int main()
 {
-	std::string w1;
-	std::string w2;
-	int k = 0;
-	std::cin >> w1 >> w2;
 	std::string w_1, w_2;
-	if (w1.length() >= w2.length()) {
-		w_1 = w1;
-		w_2 = w2;
-
-	}
-	else {
-		w_1 = w2;
-		w_2 = w1;
-	}
-	for (int i = 0; i < w_1.length(); i += 1) {
-		for (int j = 0; j < w_2.length(); j += 1) {
-			if (w_1[i] == w_2[j]) {
-				std::cout << w_1[i] << w_2[j] << "\n";
-			}
-			else {
-				k += 2;
-			}
+	std::cin >> w_1;
+	std::cin >> w_2;
+	int k_1 = 0, k_2 = 0;
+	int j = w_2.length()-1;
+	for (int i = w_1.length()-1; (i >= 0) && (j >= 0); i -= 1, j -= 1) {
+		if (w_1[i] == w_2[j]) {
+			k_1 += 1;
+			k_2 += 1;
+		}
+		else {
+			break;
 		}
 	}
-	std::cout << k;
+	std::cout << w_1.length() + w_2.length() - k_1 - k_2<<"\n";
 }
